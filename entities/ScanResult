@@ -1,0 +1,55 @@
+{
+  "name": "ScanResult",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "The URL that was scanned"
+    },
+    "threat_score": {
+      "type": "number",
+      "description": "Threat score from 0-100"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "safe",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Risk classification"
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "AI-generated analysis reasoning"
+    },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of threat indicators found"
+    },
+    "domain": {
+      "type": "string",
+      "description": "Extracted domain from the URL"
+    },
+    "is_threat": {
+      "type": "boolean",
+      "description": "Whether the URL is classified as a threat"
+    },
+    "scan_duration_ms": {
+      "type": "number",
+      "description": "How long the scan took in milliseconds"
+    }
+  },
+  "required": [
+    "url",
+    "threat_score",
+    "risk_level",
+    "reasoning",
+    "is_threat"
+  ]
+}
